@@ -15,9 +15,9 @@ else
 
     cd notebooks
     if [[ "$ACTION" == 'reset-get-data' ]]; then
-        cd get-data
+        cd 01-get-data
     else
-        cd eda
+        cd 02-eda
     fi
 
     cd notebooks
