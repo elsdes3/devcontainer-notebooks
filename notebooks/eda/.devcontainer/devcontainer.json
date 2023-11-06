@@ -1,0 +1,75 @@
+{
+    "name": "Exploratory Data Analysis",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "overrideCommand": false,
+    // Forward Jupyter port locally, mark required
+    "forwardPorts": [
+        8889
+    ],
+    "portsAttributes": {
+        "8889": {
+            "label": "Jupyter",
+            "requireLocalPort": true,
+            "onAutoForward": "ignore"
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/jovyan/.aws,type=bind"
+    ],
+    // Configure tool-specific properties.
+    "customizations": {
+        // // Code Spaces
+        // "codespaces": {
+        //     "openFiles": []
+        // },
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.vscode-pylance",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true
+                    },
+                    "editor.formatOnPaste": false,
+                    "editor.formatOnSave": true
+                },
+                "isort.args": [
+                    "--profile",
+                    "vscode-pylance"
+                ],
+                "editor.fontSize": 14,
+                "editor.fontWeight": "500",
+                "editor.formatOnSave": true,
+                "debug.console.fontSize": 14,
+                "terminal.integrated.fontSize": 14,
+                "terminal.integrated.fontWeight": "100",
+                "editor.formatOnSaveMode": "file",
+                "editor.formatOnType": true
+            },
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "ms-python.isort",
+                "ms-python.black-formatter",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    },
+    // // JupyterLab with Code Spaces
+    // "hostRequirements": {
+    //     "cpus": 4
+    // },
+    // "features": {
+    //     "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+    //         "installCudnn": true
+    //     }
+    // },
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "jovyan"
+}

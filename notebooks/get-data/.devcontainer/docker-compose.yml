@@ -1,0 +1,12 @@
+version: '3.9' # version of compose format
+
+services:
+  get-data:
+    container_name: get-data
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: 'no'
+    environment:
+      NB_UID: 1000
+      NB_GID: 1000

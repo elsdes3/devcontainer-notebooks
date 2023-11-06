@@ -1,0 +1,12 @@
+version: '3.9' # version of compose format
+
+services:
+  eda:
+    container_name: eda
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: 'no'
+    environment:
+      NB_UID: 1000
+      NB_GID: 1000
