@@ -181,11 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Run a multi-step Jupyter notebook-based workflow, in which each step runs inside its own Dev Container. This was adapted from the <a href="https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers">VS Code documentation for configuring multiple Dev Containers</a>.</p>
 <p>The following workflow steps are shown here within the <code>notebooks</code> folder</p>
 <ol type="1">
-<li><code>get-data</code>
+<li><code>01-get-data</code>
 <ul>
 <li>runs ETL pipeline to retrieve data and store in private cloud storage (AWS S3 bucket)</li>
 </ul></li>
-<li><code>eda</code>
+<li><code>02-eda</code>
 <ul>
 <li>performs exploratory data analysis using data stored in private cloud storage (AWS S3 bucket)</li>
 </ul></li>
@@ -210,12 +210,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
 <ol type="1">
-<li>Clone this repo into the working folder (eg. clone into <code>~/Downloads</code>).</li>
-<li>In VS Code, select File &gt; Open Folder… and select the <code>notebooks</code> folder inside project root inside the working directory (eg. open <code>~/Downloads/devcontainer-notebooks/notebooks</code>). Two sub-folders (<code>get-data</code> and <code>eda</code>) should be visible. One sub-folder corresponds to a single step in the workflow.</li>
-<li>A pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a <code>git</code> repo. Ignore this and click <strong>Never</strong>.</li>
-<li>Change the contents of <code>.devcontainer/environment.yml</code> inside the appropriate sub-folder as required.</li>
-<li>Click the <em>Reopen in Container</em> button (as shown in the image <a href="https://code.visualstudio.com/docs/devcontainers/create-dev-container#_add-configuration-files-to-a-repository">here</a>) in order to re-open one of the sub-folders inside a Dev Container. If the button has disappeared, press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select <em>Dev Containers: Open in Container…</em></li>
-<li>Select the required sub-folder (<code>get-data</code> or <code>eda</code>).</li>
+<li><p>Clone this repo into the working folder (eg. clone into <code>~/Downloads</code>).</p></li>
+<li><p>In VS Code, select File &gt; Open Folder… and select the <code>notebooks</code> folder inside project root inside the working directory (eg. open <code>~/Downloads/devcontainer-notebooks/notebooks</code>). Two sub-folders (<code>01-get-data</code> and <code>02-eda</code>) should be visible. One sub-folder corresponds to a single step in the workflow.</p></li>
+<li><p>A pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a <code>git</code> repo and asking if this repo should be opened in the text editor (VS Code)</p>
+<blockquote class="blockquote">
+<p>A git repository was found in the parent folders of the workspace or the open file(s). Would you like to open the repository?</p>
+</blockquote>
+<p>The parent directory is not required for any analysis, so this message can be ignored. Click <strong>Never</strong>.</p></li>
+<li><p>Change the contents of <code>.devcontainer/environment.yml</code> inside the appropriate sub-folder as required.</p></li>
+<li><p>Press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select <em>Dev Containers: Open Folder in Container…</em></p></li>
+<li><p>Select the required sub-folder (<code>01-get-data</code> or <code>02-eda</code>).</p></li>
 </ol>
 <section id="vs-code-actions" class="level3">
 <h3 class="anchored" data-anchor-id="vs-code-actions">VS Code Actions</h3>
