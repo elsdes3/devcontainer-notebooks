@@ -8,11 +8,11 @@ dependencies:
     - Jinja2==3.1.2
     - boto3
     - s3fs>=2023.6.0
-    # - requests==2.31.0
-    # - contexttimer==0.3.3
+    - requests==2.31.0
+    - contexttimer==0.3.3
   - conda:
     - ipykernel==6.25.2
     - gcc==13.2.0
-    # - joblib==1.3.2
+    - joblib==1.3.2
     - pandas==2.0.0
-    # - pyarrow==13.0.0
+    - pyarrow==13.0.0
