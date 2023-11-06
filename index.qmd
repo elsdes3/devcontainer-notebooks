@@ -32,7 +32,7 @@ The following workflow steps are shown here within the `notebooks` folder
 
 1. Clone this repo into the working folder (eg. clone into `~/Downloads`).
 2. In VS Code, select File > Open Folder... and select the `notebooks` folder inside project root inside the working directory (eg. open `~/Downloads/devcontainer-notebooks/notebooks`). Two sub-folders (`get-data` and `eda`) should be visible. One sub-folder corresponds to a single step in the workflow.
-3. A pop-up appears at the bottom right of the screen. Ignore this for now.
+3. A pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a `git` repo. Ignore this and click **Never**.
 4. Change the contents of `.devcontainer/environment.yml` inside the appropriate sub-folder as required.
 5. Click the *Reopen in Container* button (as shown in the image [here](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_add-configuration-files-to-a-repository)) in order to re-open one of the sub-folders inside a Dev Container. If the button has disappeared, press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select *Dev Containers: Open in Container...*
 6. Select the required sub-folder (`get-data` or `eda`).
