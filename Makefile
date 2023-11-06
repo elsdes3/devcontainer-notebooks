@@ -31,6 +31,24 @@ docker-system-prune:
 	@docker system prune -f
 .PHONY: docker-system-prune
 
+## Run Quarto preview
+quarto-preview:
+	@echo "+ $@"
+	@quarto preview
+.PHONY: quarto-preview
+
+## Run Quarto render
+quarto-render:
+	@echo "+ $@"
+	@quarto render
+.PHONY: quarto-render
+
+## Run Quarto publish to github pages
+quarto-publish:
+	@echo "+ $@"
+	@quarto publish gh-pages
+.PHONY: quarto-publish
+
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
