@@ -1,1 +1,1 @@
-Sitemap: https://github.com/elsdes3/devcontainer-notebooks/sitemap.xml
+Sitemap: https://elsdes3.github.io/devcontainer-notebooks/sitemap.xml
