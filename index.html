@@ -167,8 +167,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link" data-scroll-target="#pre-requisites">Pre-Requisites</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
-  <li><a href="#vs-code-actions" id="toc-vs-code-actions" class="nav-link" data-scroll-target="#vs-code-actions">VS Code Actions</a></li>
-  <li><a href="#cleanup" id="toc-cleanup" class="nav-link" data-scroll-target="#cleanup">Cleanup</a></li>
+  <li><a href="#build-and-run-a-container" id="toc-build-and-run-a-container" class="nav-link" data-scroll-target="#build-and-run-a-container">Build and Run a Container</a></li>
+  <li><a href="#shut-down-and-remove-a-container" id="toc-shut-down-and-remove-a-container" class="nav-link" data-scroll-target="#shut-down-and-remove-a-container">Shut Down and Remove a Container</a></li>
   </ul></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul></li>
@@ -187,22 +187,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p>Run a multi-step Jupyter notebook-based workflow, in which each step runs inside its own Dev Container. This was adapted from the <a href="https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers">VS Code documentation for configuring multiple Dev Containers</a>.</p>
-<p>The following workflow steps are shown here within the <code>notebooks</code> folder</p>
+<p>The following workflow steps are included</p>
 <ol type="1">
-<li><code>01-get-data</code>
+<li>Get data
 <ul>
 <li>runs ETL pipeline to retrieve data and store in private cloud storage (AWS S3 bucket)</li>
+<li>see <code>notebooks/01-get-data</code></li>
 </ul></li>
-<li><code>02-eda</code>
+<li>Explore the data
 <ul>
 <li>performs exploratory data analysis using data stored in private cloud storage (AWS S3 bucket)</li>
+<li>see <code>notebooks/02-eda</code></li>
 </ul></li>
 </ol>
 </section>
 <section id="pre-requisites" class="level2">
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-Requisites</h2>
 <ol type="1">
-<li><p>Install Docker, including <code>docker-compose</code> (<a href="https://docs.docker.com/engine/install/ubuntu/">1</a>, <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04">2</a> <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04">3</a>).</p></li>
+<li><p>Install Docker, including <code>docker-compose</code> (<a href="https://docs.docker.com/engine/install/ubuntu/">1</a>, <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04">2</a>, <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04">3</a>).</p></li>
 <li><p><a href="https://code.visualstudio.com/download">Download</a> and <a href="https://code.visualstudio.com/docs/setup/setup-overview#_cross-platform">install VS Code</a>, with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers extension</a>.</p></li>
 <li><p>Create an AWS account and create the following AWS resources</p>
 <ul>
@@ -217,6 +219,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<section id="build-and-run-a-container" class="level3">
+<h3 class="anchored" data-anchor-id="build-and-run-a-container">Build and Run a Container</h3>
 <ol type="1">
 <li><p>Clone this repo into the working folder (eg. clone into <code>~/Downloads</code>).</p></li>
 <li><p>In VS Code, select File &gt; Open Folder… and select the <code>notebooks</code> folder inside project root inside the working directory (eg. open <code>~/Downloads/devcontainer-notebooks/notebooks</code>). Two sub-folders (<code>01-get-data</code> and <code>02-eda</code>) should be visible. One sub-folder corresponds to a single step in the workflow.</p></li>
@@ -227,27 +231,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The parent directory is not required for any analysis, so this message can be ignored. Click <strong>Never</strong>.</p></li>
 <li><p>Change the contents of <code>.devcontainer/environment.yml</code> inside the appropriate sub-folder as required.</p></li>
 <li><p>Press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select <em>Dev Containers: Open Folder in Container…</em></p></li>
-<li><p>Select the required sub-folder (<code>01-get-data</code> or <code>02-eda</code>).</p></li>
-</ol>
-<section id="vs-code-actions" class="level3">
-<h3 class="anchored" data-anchor-id="vs-code-actions">VS Code Actions</h3>
-<p>Perform the following in VS Code</p>
-<ol type="1">
+<li><p>Select the required sub-folder (<code>01-get-data</code> or <code>02-eda</code>). The container will now be built.</p></li>
 <li><p>Click <em>Starting Dev Contiainer (show log)</em> to view the container building logs.</p></li>
 <li><p>In the TERMINAL, click <em>Maximize Panel Size</em>.</p></li>
 <li><p>The TERMINAL shows the progress of the container build process.</p></li>
-<li><p>After the container has been built</p>
+<li><p>After the container has been built</p></li>
+</ol>
 <ul>
 <li>the TERMINAL will stop updating</li>
 <li>The lower left remote indicator will display <em>Dev Container: Containerized Jupyter Notebook</em></li>
 <li>the contents of the workspace will be visible in the File Explorer</li>
-</ul></li>
-<li><p>In the terminal, click <em>Restore Panel Size</em>.</p></li>
-<li><p>Open the <code>notebooks</code> folder and launch a notebook.</p></li>
+</ul>
+<ol start="11" type="1">
+<li>In the terminal, click <em>Restore Panel Size</em>.</li>
+<li>Open the <code>notebooks</code> folder and launch a notebook.</li>
 </ol>
 </section>
-<section id="cleanup" class="level3">
-<h3 class="anchored" data-anchor-id="cleanup">Cleanup</h3>
+<section id="shut-down-and-remove-a-container" class="level3">
+<h3 class="anchored" data-anchor-id="shut-down-and-remove-a-container">Shut Down and Remove a Container</h3>
 <p>First shut down the container</p>
 <ol type="1">
 <li>Close any open notebooks.</li>
@@ -265,9 +266,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>
 <ol type="1">
-<li>Code formatting settings specified in <code>.devcontainer/devcontainers.json</code> are being ignored. Python modules in <code>src</code> are not correctly formatted based on these settings.</li>
-<li>This container will support running a Jupyter notebook, and will not start the <a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> interface.</li>
-<li>It was not possible to mount the local <code>~/.aws</code> folder to the same path inside the container <a href="https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount">using the <code>docker-compose.yml</code> file</a>, so <a href="https://renatogolia.com/2020/10/12/working-with-aws-in-devcontainers/">this mounting was done using the <code>devcontainer.json file</code></a>.</li>
+<li>Code formatting settings specified in <code>.devcontainer/devcontainers.json</code> are being ignored. As a result, Python modules in <code>src</code> are not correctly formatted.</li>
+<li>This container will support running a Jupyter notebook in VS Code. It will not start the <a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> interface in a web browser.</li>
+<li>It was not possible to mount the local <code>~/.aws</code> folder to the same path inside the container <a href="https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount">using the <code>docker-compose.yml</code> file</a>. Instead, <a href="https://renatogolia.com/2020/10/12/working-with-aws-in-devcontainers/">this mounting was done using the <code>devcontainer.json file</code></a>.</li>
 </ol>
 
 
