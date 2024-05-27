@@ -19,7 +19,7 @@ The following workflow steps are shown here within the `notebooks` folder
 
 ## Pre-Requisites
 
-1. Install Docker, including `docker-compose` ([1](https://docs.docker.com/engine/install/ubuntu/), [2](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04) [3](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)).
+1. Install Docker, including `docker-compose` ([1](https://docs.docker.com/engine/install/ubuntu/), [2](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04), [3](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)).
 2. [Download](https://code.visualstudio.com/download) and [install VS Code](https://code.visualstudio.com/docs/setup/setup-overview#_cross-platform), with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 3. Create an AWS account and create the following AWS resources
 
