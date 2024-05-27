@@ -10,12 +10,14 @@
 
 Run a multi-step Jupyter notebook-based workflow, in which each step runs inside its own Dev Container. This was adapted from the [VS Code documentation for configuring multiple Dev Containers](https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers).
 
-The following workflow steps are shown here within the `notebooks` folder
+The following workflow steps are included
 
-1. `01-get-data`
+1. Get data
    - runs ETL pipeline to retrieve data and store in private cloud storage (AWS S3 bucket)
-2. `02-eda`
+   - see `notebooks/01-get-data`
+2. Explore the data
    - performs exploratory data analysis using data stored in private cloud storage (AWS S3 bucket)
+   - see `notebooks/02-eda`
 
 ## Pre-Requisites
 
@@ -30,6 +32,8 @@ The following workflow steps are shown here within the `notebooks` folder
 
 ## Usage
 
+### Build and Run a Container
+
 1. Clone this repo into the working folder (eg. clone into `~/Downloads`).
 2. In VS Code, select File > Open Folder... and select the `notebooks` folder inside project root inside the working directory (eg. open `~/Downloads/devcontainer-notebooks/notebooks`). Two sub-folders (`01-get-data` and `02-eda`) should be visible. One sub-folder corresponds to a single step in the workflow.
 3. A pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a `git` repo and asking if this repo should be opened in the text editor (VS Code)
@@ -39,24 +43,19 @@ The following workflow steps are shown here within the `notebooks` folder
    The parent directory is not required for any analysis, so this message can be ignored. Click **Never**.
 4. Change the contents of `.devcontainer/environment.yml` inside the appropriate sub-folder as required.
 5. Press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select *Dev Containers: Open Folder in Container...*
-6. Select the required sub-folder (`01-get-data` or `02-eda`).
-
-### VS Code Actions
-
-Perform the following in VS Code
-
-1. Click *Starting Dev Contiainer (show log)* to view the container building logs.
-2. In the TERMINAL, click *Maximize Panel Size*.
-3. The TERMINAL shows the progress of the container build process.
-4. After the container has been built
+6. Select the required sub-folder (`01-get-data` or `02-eda`). The container will now be built.
+7. Click *Starting Dev Contiainer (show log)* to view the container building logs.
+8. In the TERMINAL, click *Maximize Panel Size*.
+9. The TERMINAL shows the progress of the container build process.
+10. After the container has been built
 
    - the TERMINAL will stop updating
    - The lower left remote indicator will display *Dev Container: Containerized Jupyter Notebook*
    - the contents of the workspace will be visible in the File Explorer
-5. In the terminal, click *Restore Panel Size*.
-6. Open the `notebooks` folder and launch a notebook.
+11. In the terminal, click *Restore Panel Size*.
+12. Open the `notebooks` folder and launch a notebook.
 
-### Cleanup
+### Shut Down and Remove a Container
 
 First shut down the container
 
@@ -76,6 +75,6 @@ Next, from the root directory of the project, remove any containers and images u
 
 ## Notes
 
-1. Code formatting settings specified in `.devcontainer/devcontainers.json` are being ignored. Python modules in `src` are not correctly formatted based on these settings.
-2. This container will support running a Jupyter notebook, and will not start the [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/) interface.
-3. It was not possible to mount the local `~/.aws` folder to the same path inside the container [using the `docker-compose.yml` file](https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount), so [this mounting was done using the `devcontainer.json file`](https://renatogolia.com/2020/10/12/working-with-aws-in-devcontainers/).
+1. Code formatting settings specified in `.devcontainer/devcontainers.json` are being ignored. As a result, Python modules in `src` are not correctly formatted.
+2. This container will support running a Jupyter notebook in VS Code. It will not start the [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/) interface in a web browser.
+3. It was not possible to mount the local `~/.aws` folder to the same path inside the container [using the `docker-compose.yml` file](https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount). Instead, [this mounting was done using the `devcontainer.json file`](https://renatogolia.com/2020/10/12/working-with-aws-in-devcontainers/).
