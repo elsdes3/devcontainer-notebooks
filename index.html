@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -104,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -120,41 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Walkthrough</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Walkthrough</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
@@ -168,15 +138,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
   <li><a href="#build-and-run-a-container" id="toc-build-and-run-a-container" class="nav-link" data-scroll-target="#build-and-run-a-container">Build and Run a Container</a></li>
-  <li><a href="#shut-down-and-remove-a-container" id="toc-shut-down-and-remove-a-container" class="nav-link" data-scroll-target="#shut-down-and-remove-a-container">Shut Down and Remove a Container</a></li>
+  <li><a href="#shut-down-a-container" id="toc-shut-down-a-container" class="nav-link" data-scroll-target="#shut-down-a-container">Shut Down a Container</a></li>
+  <li><a href="#run-a-container" id="toc-run-a-container" class="nav-link" data-scroll-target="#run-a-container">Run a Container</a></li>
+  <li><a href="#remove-a-container" id="toc-remove-a-container" class="nav-link" data-scroll-target="#remove-a-container">Remove a Container</a></li>
   </ul></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#links-used" id="toc-links-used" class="nav-link" data-scroll-target="#links-used">Links Used</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/elsdes3/devcontainer-notebooks/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/elsdes3/devcontainer-notebooks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 
@@ -186,15 +159,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="https://github.com/elsdes3/devcontainer-notebooks/workflows/CI/badge.svg" class="img-fluid" alt="CI"> <a href="https://opensource.org/licenses/mit"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" class="img-fluid" alt="License: MIT"></a> <img src="https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github.png" class="img-fluid" alt="OpenSource"> <a href="https://github.com/ambv/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" class="img-fluid" alt="Code style: black"></a> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" class="img-fluid" alt="prs-welcome"></p>
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>Run a multi-step Jupyter notebook-based workflow, in which each step runs inside its own Dev Container. This was adapted from the <a href="https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers">VS Code documentation for configuring multiple Dev Containers</a>.</p>
+<p>Run a multi-step Jupyter notebook-based workflow on <a href="https://ubuntu.com/desktop">Ubuntu Desktop</a>, in which each step runs inside its own <a href="https://containers.dev/">Dev Container</a>.</p>
 <p>The following workflow steps are included</p>
 <ol type="1">
-<li>Get data
+<li>retrieve raw data
 <ul>
 <li>runs ETL pipeline to retrieve data and store in private cloud storage (AWS S3 bucket)</li>
 <li>see <code>notebooks/01-get-data</code></li>
 </ul></li>
-<li>Explore the data
+<li>explore raw data
 <ul>
 <li>performs exploratory data analysis using data stored in private cloud storage (AWS S3 bucket)</li>
 <li>see <code>notebooks/02-eda</code></li>
@@ -204,62 +177,111 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pre-requisites" class="level2">
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-Requisites</h2>
 <ol type="1">
-<li><p>Install Docker, including <code>docker-compose</code> (<a href="https://docs.docker.com/engine/install/ubuntu/">1</a>, <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04">2</a>, <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04">3</a>).</p></li>
-<li><p><a href="https://code.visualstudio.com/download">Download</a> and <a href="https://code.visualstudio.com/docs/setup/setup-overview#_cross-platform">install VS Code</a>, with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers extension</a>.</p></li>
-<li><p>Create an AWS account and create the following AWS resources</p>
+<li><p>Install the Ubuntu desktop operating system</p></li>
+<li><p>Ensure Docker (including <code>docker-compose</code>) is installed locally. For detailed instructions on installing Docker on Ubuntu, see the following helpful resources</p>
 <ul>
-<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console">create an (Administrator) IAM user</a> with <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AdministratorAccess.html">the <code>AdministratorAccess</code> policy</a> or with another policy that permits the user to access the private S3 bucket
-<ul>
-<li>create access keys for this IAM user (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey">1</a>, <a href="https://docs.aws.amazon.com/sdkref/latest/guide/access-iam-users.html">2</a>)</li>
-<li>copy the <em>Access key ID</em> and <em>Secret Access Key</em> into <code>~/.aws/credentials</code> per <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file">these instructions</a></li>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/">Docker installation instructions on Ubuntu</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04">Digital Ocean installation walkthrough on Ubuntu</a></li>
 </ul></li>
-<li>create a private S3 bucket (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html">1</a>, <a href="https://www.simplified.guide/aws/s3/create-private-bucket">2</a>)</li>
+<li><p><a href="https://code.visualstudio.com/download">Download</a> and <a href="https://code.visualstudio.com/docs/setup/setup-overview#_cross-platform">install VS Code</a>. Install the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers extension</a>.</p></li>
+<li><p>Create an AWS account and provision the following AWS resources</p>
+<ul>
+<li>create a private S3 bucket
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html">AWS documentation</a></li>
+<li><a href="https://www.simplified.guide/aws/s3/create-private-bucket">Simplified.guide</a> walkthrough</li>
+</ul></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console">create an (Administrator) IAM user</a> with <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AdministratorAccess.html">the <code>AdministratorAccess</code> policy</a> or with another policy that permits the user to access the private S3 bucket created above</li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey">create access keys for the IAM user</a></li>
+<li><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file">copy the <em>Access key ID</em> and <em>Secret Access Key</em> into <code>~/.aws/credentials</code></a></li>
 </ul></li>
 </ol>
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>Clone this repo into the working folder (eg. clone into <code>~/Downloads</code>) and launch VS Code.</p>
 <section id="build-and-run-a-container" class="level3">
 <h3 class="anchored" data-anchor-id="build-and-run-a-container">Build and Run a Container</h3>
+<p>Use the following approach to execute a single step of the workflow (<code>01-get-data</code> or <code>02-eda</code>) inside a container. If the container has not been built, it will first be built before running it.</p>
 <ol type="1">
-<li><p>Clone this repo into the working folder (eg. clone into <code>~/Downloads</code>).</p></li>
-<li><p>In VS Code, select File &gt; Open Folder… and select the <code>notebooks</code> folder inside project root inside the working directory (eg. open <code>~/Downloads/devcontainer-notebooks/notebooks</code>). Two sub-folders (<code>01-get-data</code> and <code>02-eda</code>) should be visible. One sub-folder corresponds to a single step in the workflow.</p></li>
-<li><p>A pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a <code>git</code> repo and asking if this repo should be opened in the text editor (VS Code)</p>
+<li><p>Select File &gt; Open Folder… and select the <code>notebooks</code> sub-folder (eg. select <code>~/Downloads/devcontainer-notebooks/notebooks</code>)</p>
+<ul>
+<li>two sub-folders (<code>01-get-data</code> and <code>02-eda</code>) should be visible</li>
+<li>each sub-folder corresponds to a single step in the above workflow</li>
+</ul></li>
+<li><p>During the first build and run of a container, a pop-up appears at the bottom right of the screen indicating the parent directory is detected to be a <code>git</code> repository. It asks if this repository should be opened in the text editor (VS Code)</p>
 <blockquote class="blockquote">
 <p>A git repository was found in the parent folders of the workspace or the open file(s). Would you like to open the repository?</p>
 </blockquote>
-<p>The parent directory is not required for any analysis, so this message can be ignored. Click <strong>Never</strong>.</p></li>
-<li><p>Change the contents of <code>.devcontainer/environment.yml</code> inside the appropriate sub-folder as required.</p></li>
-<li><p>Press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select <em>Dev Containers: Open Folder in Container…</em></p></li>
-<li><p>Select the required sub-folder (<code>01-get-data</code> or <code>02-eda</code>). The container will now be built.</p></li>
-<li><p>Click <em>Starting Dev Contiainer (show log)</em> to view the container building logs.</p></li>
-<li><p>In the TERMINAL, click <em>Maximize Panel Size</em>.</p></li>
-<li><p>The TERMINAL shows the progress of the container build process.</p></li>
-<li><p>After the container has been built</p></li>
-</ol>
+<p>The parent directory is not required for any analysis <em>inside the container</em>, so this message can be ignored. Click <strong>Never</strong>.</p></li>
+<li><p>Press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select <em>Dev Containers: Open Folder in Container…</em>.</p></li>
+<li><p>Select a sub-folder (<code>01-get-data</code> or <code>02-eda</code>) to run one step of the workflow</p>
 <ul>
-<li>the TERMINAL will stop updating</li>
-<li>The lower left remote indicator will display <em>Dev Container: Containerized Jupyter Notebook</em></li>
-<li>the contents of the workspace will be visible in the File Explorer</li>
-</ul>
-<ol start="11" type="1">
-<li>In the terminal, click <em>Restore Panel Size</em>.</li>
-<li>Open the <code>notebooks</code> folder and launch a notebook.</li>
+<li>a container will now be built to run this step</li>
+</ul></li>
+<li><p>(optional) A pop-up appears at the bottom right of the screen indicating <em>Starting Dev Contiainer (show log)</em>. Click <em>Starting Dev Contiainer (show log)</em> to view the container build logs.</p></li>
+<li><p>(optional) The TERMINAL shows the logs of the container build process. To view these logs, select <em>TERMINAL &gt; Maximize Panel Size</em>.</p></li>
+<li><p>(optional) After the container has been built</p>
+<ul>
+<li>the logs in the TERMINAL will stop updating</li>
+<li>the lower left remote indicator will display one of
+<ul>
+<li><em>Dev Container: Get Data</em> (for the <code>get-data</code> step of the workflow)</li>
+<li><em>Dev Container: Eda</em> (for the <code>eda</code> step)</li>
+</ul></li>
+<li>the following contents of the workspace will be visible in the File Explorer
+<ul>
+<li><code>.devcontainer</code></li>
+<li><code>notebooks</code></li>
+<li><code>src</code></li>
+</ul></li>
+</ul></li>
+<li><p>(optional) In the terminal, click <em>Restore Panel Size</em>.</p></li>
+<li><p>Open the <code>notebooks</code> folder and launch a notebook</p></li>
+<li><p>Select a Jupyter kernel</p>
+<ul>
+<li>from the top-right corner, click <em>Select Kernel</em>
+<ul>
+<li>select <em>Python Environments</em></li>
+<li>select one of
+<ul>
+<li><em><code>get-data</code> (Python 3.xx.xx)</em></li>
+<li><em><code>eda</code> (Python 3.xx.xx)</em></li>
+</ul></li>
+</ul></li>
+<li>all the Python libraries listed in the above <code>.devcontainer/environment.yml</code> file for development of this step of the workflow have been installed in this Python environment. After the kernel is selected, all these libraries can be imported into this notebook and all cells in the notebook can be executed without any errors about missing dependencies.</li>
+</ul></li>
 </ol>
 </section>
-<section id="shut-down-and-remove-a-container" class="level3">
-<h3 class="anchored" data-anchor-id="shut-down-and-remove-a-container">Shut Down and Remove a Container</h3>
-<p>First shut down the container</p>
+<section id="shut-down-a-container" class="level3">
+<h3 class="anchored" data-anchor-id="shut-down-a-container">Shut Down a Container</h3>
 <ol type="1">
-<li>Close any open notebooks.</li>
-<li>Click the lower left remote indicator and select <em>Close Remote Connection</em>.</li>
+<li>Shut down the container inside which the notebook for the workflow step is running
+<ul>
+<li>close any open notebooks</li>
+<li>close the connection to the container
+<ul>
+<li>click the lower left remote development indicator</li>
+<li>select <em>Close Remote Connection</em></li>
+</ul></li>
+</ul></li>
 </ol>
-<p>Next, from the root directory of the project, remove any containers and images using</p>
+</section>
+<section id="run-a-container" class="level3">
+<h3 class="anchored" data-anchor-id="run-a-container">Run a Container</h3>
+<p>To run a container that was previously built, follow steps 1 to 9 from above.</p>
+</section>
+<section id="remove-a-container" class="level3">
+<h3 class="anchored" data-anchor-id="remove-a-container">Remove a Container</h3>
 <ol type="1">
-<li><p>cleanup container resources for the <code>get-data</code> step of the workflow</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> reset-get-data docker-system-prune</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>cleanup container resources for the <code>eda</code> step of the workflow</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> reset-eda docker-system-prune</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Remove any container resources for the workflow step
+<ul>
+<li><p>launch a terminal at the root directory of the project (eg. in <code>~/Downloads</code>)</p></li>
+<li><p>clean up containers and images for a single workflow step (<code>get-data</code> or <code>eda</code>)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">~/Downloads/devcontainer-notebooks$</span> make reset-<span class="op">&lt;</span>step-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>(optional) <a href="https://docs.docker.com/reference/cli/docker/system/prune/">Remove unused docker resources</a></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/Downloads/devcontainer-notebooks$</span> make docker-system-prune</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
 </ol>
 </section>
 </section>
@@ -269,6 +291,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Code formatting settings specified in <code>.devcontainer/devcontainers.json</code> are being ignored. As a result, Python modules in <code>src</code> are not correctly formatted.</li>
 <li>This container will support running a Jupyter notebook in VS Code. It will not start the <a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> interface in a web browser.</li>
 <li>It was not possible to mount the local <code>~/.aws</code> folder to the same path inside the container <a href="https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount">using the <code>docker-compose.yml</code> file</a>. Instead, <a href="https://renatogolia.com/2020/10/12/working-with-aws-in-devcontainers/">this mounting was done using the <code>devcontainer.json file</code></a>.</li>
+<li>This is an opinionated setup to work with containers inside multiple containers. A separate <code>docker-compose.yml</code> file is used per step of the workflow. An alternate setup to work with multiple Dev Containers (not involving notebooks) is demonstrated <a href="https://www.youtube.com/watch?v=bVmczgfeR5Y">here</a>. It has the benefit of using a single <code>docker-compose.yml</code> file that could be adapted to capture all steps of a multi-step notebook-based workflow.</li>
+</ol>
+</section>
+<section id="links-used" class="level2">
+<h2 class="anchored" data-anchor-id="links-used">Links Used</h2>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/sdkref/latest/guide/access-iam-users.html">AWS documentation to create an IAM user</a></li>
+<li>VS Code
+<ul>
+<li><a href="https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers">Configuring multiple Dev Containers</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLj6YeMhvp2S6GjVyDHTPp8tLOR0xLGLYb">Dev Containers Playlist</a>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=PSBeVOw7cKQ&amp;list=PLj6YeMhvp2S6GjVyDHTPp8tLOR0xLGLYb">change a user</a></li>
+<li><a href="https://www.youtube.com/watch?v=o5coAL7oE0o&amp;list=PLj6YeMhvp2S6GjVyDHTPp8tLOR0xLGLYb">work with monorepos</a></li>
+<li><a href="https://www.youtube.com/watch?v=L1-dx-ZD0Ao&amp;list=PLj6YeMhvp2S6GjVyDHTPp8tLOR0xLGLYb">add (mount) a local folder</a></li>
+</ul></li>
+</ul></li>
 </ol>
 
 
