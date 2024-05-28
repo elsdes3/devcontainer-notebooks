@@ -84,9 +84,9 @@ Use the following approach to execute a single step of the workflow (`01-get-dat
      - click the lower left remote development indicator
      - select *Close Remote Connection*
 
-### Run a Container
+### Run a Local Container
 
-To run a container that was previously built, follow steps 1 to 9 from above.
+To run a container that was previously built locally, follow steps 1 to 9 from above.
 
 ### Remove a Container
 
